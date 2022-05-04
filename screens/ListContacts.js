@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Avatar, ListItem,Header } from 'react-native-elements';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { ScrollView } from 'react-native';
 
 
 export default function ListContacts({route,navigation}) {
@@ -15,7 +16,6 @@ export default function ListContacts({route,navigation}) {
         axios.get('http://professornilson.com/testeservico/clientes')
         
         .then(function (response) {
-            console.log(response.data);
             setContatos(response.data);
         }).catch(function (error) {
             console.log(error);
@@ -27,7 +27,7 @@ export default function ListContacts({route,navigation}) {
 
     useEffect(()=>{
         consultarDados()
-    },[])
+    }, [getContatos])
 
 
 
@@ -38,8 +38,7 @@ export default function ListContacts({route,navigation}) {
         rightComponent={{ icon: 'plus', type: 'font-awesome', color: '#fff',   iconStyle: { color: '#fff',fontSize: 25 }, onPress:()=>navigation.navigate('CadastroContato') }}
         centerComponent={{ text: 'Cadastro', style: { color: '#fff', fontSize: 25 } }}
         />
-        
-        <View>
+        <ScrollView>
         {
         getContatos.map((contato) => (
 
@@ -67,8 +66,7 @@ export default function ListContacts({route,navigation}) {
         ))
         }
                 
-            
-            </View>
+                </ScrollView>
             </>
     );
 }

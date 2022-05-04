@@ -11,20 +11,29 @@ export default function CadastroContato({route,navigation}) {
     const  [getTelefone,setTelefone] = useState();
     const  [getEmail,setEmail] = useState();
 
-
+    
 
     function inserirDados(){
         
         axios.post('http://professornilson.com/testeservico/clientes', {
-            nome: getNome,
-            telefone: getTelefone,
-            email: getEmail
+          nome: getNome,
+          senha: null,
+          telefone: getTelefone,
+          email: getEmail,
+          cpf: null
           })
           .then(function (response) {
-            console.log(response);
+            console.log(response.config.data);
+            navigation.navigate('Contacts')
+            console.log('Contato cadastrado com sucesso')
+
           })
           .catch(function (error) {
+            alert('Erro')
+
             console.log(error);
+            console.log('Contato não cadastrado')
+
           });     
         
     }

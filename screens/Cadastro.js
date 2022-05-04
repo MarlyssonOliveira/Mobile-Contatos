@@ -25,10 +25,12 @@ export default function Cadastro({route,navigation}) {
             cpf: getCpf
           })
           .then(function (response) {
-            console.log(response);
+            console.log(response.config.data);
+            console.log('Cadastrado com Sucesso')
           })
           .catch(function (error) {
             console.log(error);
+            console.log('Erro ao cadastar')
           });     
         
     }
@@ -55,6 +57,7 @@ export default function Cadastro({route,navigation}) {
 
                  />
                  <Input 
+                    type='password'
                     placeholder='Senha'
                     containerStyle = {{width:350}}
                     onChangeText={text => setSenha(text)}
