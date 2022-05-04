@@ -17,15 +17,14 @@ export default function CadastroContato({route,navigation}) {
         
         axios.post('http://professornilson.com/testeservico/clientes', {
           nome: getNome,
-          senha: null,
           telefone: getTelefone,
           email: getEmail,
-          cpf: null
           })
           .then(function (response) {
             console.log(response.config.data);
             navigation.navigate('Contacts')
             console.log('Contato cadastrado com sucesso')
+            console.log(getEmail)
 
           })
           .catch(function (error) {
