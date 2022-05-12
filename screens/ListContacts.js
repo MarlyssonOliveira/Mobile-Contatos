@@ -35,7 +35,10 @@ export default function ListContacts({route,navigation}) {
         <>
         <Header
         containerStyle={{backgroundColor:'#5c5c5c'}}
-        rightComponent={{ icon: 'plus', type: 'font-awesome', color: '#fff',   iconStyle: { color: '#fff',fontSize: 25 }, onPress:()=>navigation.navigate('CadastroContato') }}
+        leftComponent={{ icon: 'power-off', type: 'font-awesome', color: '#fff',   iconStyle: { color: '#fff',fontSize: 23 }, onPress:()=>navigation.navigate('Login') }}
+        leftContainerStyle={{display:"flex",justifyContent:"center"}}
+        rightComponent={{ icon: 'plus', type: 'font-awesome', color: '#fff',   iconStyle: { color: '#fff',fontSize: 23 }, onPress:()=>navigation.navigate('CadastroContato') }}
+        rightContainerStyle={{display:"flex",justifyContent:"center"}}
         centerComponent={{ text: 'Cadastro', style: { color: '#fff', fontSize: 25 } }}
         />
         

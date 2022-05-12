@@ -9,7 +9,7 @@ export default function CadastroContato({route,navigation}) {
 
     const  [getNome,setNome] = useState();
     const  [getTelefone,setTelefone] = useState();
-    const  [getEmail,setEmail] = useState();
+    const  [getCpf,setCpf] = useState();
 
 
 
@@ -18,7 +18,7 @@ export default function CadastroContato({route,navigation}) {
         axios.post('http://professornilson.com/testeservico/clientes', {
             nome: getNome,
             telefone: getTelefone,
-            email: getEmail
+            cpf: getCpf
           })
           .then(function (response) {
             console.log(response);
@@ -33,17 +33,20 @@ export default function CadastroContato({route,navigation}) {
         <View style={{flex:1, flexDirection:"column", justifyContent:'space-evenly', alignItems:"center"}}>
 
                 <Input 
-                    placeholder='Nome'
+                    label='Nome'
+                    placeholder='Digite o nome do contato...'
                     containerStyle = {{width:350}}
                     onChangeText={text => setNome(text)}
                 />
                  <Input 
-                    placeholder='Email'
+                    label='CPF'
+                    placeholder='Digite o cpf do contato...'
                     containerStyle = {{width:350}}
-                    onChangeText={text => setEmail(text)}
+                    onChangeText={text => setCpf(text)}
                  />
                  <Input 
-                    placeholder='Telefone'
+                    label='Telefone'
+                    placeholder='Digite o telefone do contato...'
                     onChangeText={text => setTelefone(text)}
                     containerStyle = {{width:350}}
                  />

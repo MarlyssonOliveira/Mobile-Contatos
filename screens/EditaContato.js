@@ -19,15 +19,13 @@ export default function CadastroContato({route,navigation}) {
             const { nome } =  route.params 
             const { telefone } =  route.params 
             const { id } =  route.params
-            const { email } =  route.params
             const { cpf } =  route.params
 
 
             setNome(nome)
-              setTelefone(telefone)
-              setCpf(cpf)
-              setId(id)
-              setEmail(email)
+            setTelefone(telefone)
+            setCpf(cpf)
+            setId(id)
 
         }
   
@@ -71,27 +69,25 @@ export default function CadastroContato({route,navigation}) {
         <View style={{flex:1, flexDirection:"column", justifyContent:'space-evenly', alignItems:"center"}}>
                 
                  <Input
-                    
+                    label='Nome'
                     onChangeText={text => setNome(text)}
                     value={getNome || ''}
-                    placeholder='Nome'
                     containerStyle = {{width:350}}
                 />
                  <Input 
-                 
-                 onChangeText={text => setEmail(text)}
-                 value={getEmail || ''}
-                    placeholder='Email'
+                 label='CPF'
+                 onChangeText={text => setCpf(text)}
+                 value={getCpf || ''}
                     containerStyle = {{width:350}}
                  />
                  <Input 
-                 
+                 label='Telefone'     
                  onChangeText={text => setTelefone(text)}
                 value={getTelefone || ''}
-                    placeholder='Telefone'
                     containerStyle = {{width:350}}
                  />
                
+
 
                 <Button 
                     onPress={()=> alterarDados()}

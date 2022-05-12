@@ -15,11 +15,11 @@ export default function Login({route,navigation}) {
             />
             <form>
                 <Input 
-                    placeholder='Login'
+                    label="Login"
                     containerStyle = {{width:350}}
                 />
                 <Input 
-                    placeholder='Senha'
+                    label="Senha"
                     containerStyle = {{width:350}}
                  />
                 <View style={{flexDirection: "column", alignItems: 'center', justifyContent: 'center'}}>

@@ -37,28 +37,32 @@ export default function Cadastro({route,navigation}) {
         <View style={{flex:1, flexDirection:"column", justifyContent:'space-around', alignItems:"center"}}>
                 
                 <Input 
-                    placeholder='Nome'
+                    label='Nome'
+                    placeholder='Digite seu nome...'
                     containerStyle = {{width:350}}
                     onChangeText={text => setNome(text)}
 
                 />
                 <Input 
-                    placeholder='CPF'
+                    label='CPF'
+                    placeholder='Digite seu CPF...'
                     containerStyle = {{width:350}}
                     onChangeText={text => setCpf(text)}
 
                  />
-                 <Input 
-                    placeholder='Email'
+                 <Input
+                    label='Email' 
+                    placeholder='Digite seu email...'
                     containerStyle = {{width:350}}
                     onChangeText={text => setEmail(text)}
 
                  />
-                 <Input 
-                    placeholder='Senha'
+                 <Input
+                    label='Senha' 
+                    placeholder='Digite sua senha...'
                     containerStyle = {{width:350}}
                     onChangeText={text => setSenha(text)}
-
+                    type="password"
                  />
 
                 <Button 
