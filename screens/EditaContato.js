@@ -42,11 +42,17 @@ export default function CadastroContato({route,navigation}) {
         {
         nome: getNome,
         telefone: getTelefone,
+        email: getEmail,
         cpf: getCpf
         }).then(function (response) {
-        console.log(response);
+            
+            console.log(response.config.data);
+            navigation.navigate('Contacts')
+            console.log('Editado!')
         }).catch(function (error) {
-        console.log(error);
+           
+            console.log(error);
+            console.log('Erro na Edição!')
         
         });
         
@@ -56,9 +62,15 @@ export default function CadastroContato({route,navigation}) {
 
             axios.delete('http://professornilson.com/testeservico/clientes/'+getId)
             .then(function (response) {
-            console.log(response);
+                
+                console.log(response);
+                navigation.navigate('Contacts')
+                console.log('Excluido')
+                
             }).catch(function (error) {
-            console.log(error);
+                
+                console.log(error);
+                console.log('Erro na exclusão')
             
             });
             

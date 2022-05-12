@@ -11,7 +11,7 @@ export default function CadastroContato({route,navigation}) {
     const  [getTelefone,setTelefone] = useState();
     const  [getCpf,setCpf] = useState();
 
-
+    
 
     function inserirDados(){
         
@@ -21,10 +21,18 @@ export default function CadastroContato({route,navigation}) {
             cpf: getCpf
           })
           .then(function (response) {
-            console.log(response);
+            console.log(response.config.data);
+            navigation.navigate('Contacts')
+            console.log('Contato cadastrado com sucesso')
+            console.log(getEmail)
+
           })
           .catch(function (error) {
+            alert('Erro')
+
             console.log(error);
+            console.log('Contato não cadastrado')
+
           });     
         
     }

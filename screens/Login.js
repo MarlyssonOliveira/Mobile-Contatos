@@ -13,7 +13,7 @@ export default function Login({route,navigation}) {
                 activeOpacity={0.7}
                 containerStyle = {{backgroundColor:"#5c5c5c", marginBottom: 15}}
             />
-            <form>
+
                 <Input 
                     label="Login"
                     containerStyle = {{width:350}}
@@ -38,7 +38,7 @@ export default function Login({route,navigation}) {
                         onPress={()=>navigation.navigate('Cadastro')}
                     />
                 </View>
-            </form>
+
             
         </View>
     );
