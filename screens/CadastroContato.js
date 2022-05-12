@@ -28,8 +28,6 @@ export default function CadastroContato({route,navigation}) {
 
           })
           .catch(function (error) {
-            alert('Erro')
-
             console.log(error);
             console.log('Contato não cadastrado')
 
