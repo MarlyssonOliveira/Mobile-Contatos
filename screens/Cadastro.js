@@ -5,53 +5,46 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useState } from 'react';
 import axios from 'axios';
 
+import { initializeApp } from "firebase/app";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
+
 export default function Cadastro({route,navigation}) {
 
-
-    const  [getNome,setNome] = useState();
-    const  [getSenha,setSenha] = useState();
-    const  [getEmail,setEmail] = useState();
-    const  [getCpf,setCpf] = useState();
-
-
-
+    const firebaseConfig = {
+        apiKey: "AIzaSyClrko5dbeXr5nNNjIRkOrqB1C3tlCQu0w",
+        authDomain: "atividade-mobile-f6905.firebaseapp.com",
+        projectId: "atividade-mobile-f6905",
+        storageBucket: "atividade-mobile-f6905.appspot.com",
+        messagingSenderId: "267169267372",
+        appId: "1:267169267372:web:41f12e2f7361226adfe909"
+      };
+      
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      
+      
+        const auth = getAuth();
+        const  [getSenha,setSenha] = useState();
+        const  [getEmail,setEmail] = useState();
 
     function inserirDados(){
-        
-        axios.post('http://professornilson.com/testeservico/clientes', {
-            nome: getNome,
-            senha: getSenha,
-            email: getEmail,
-            cpf: getCpf
-          })
-          .then(function (response) {
-            console.log(response.config.data);
-            console.log('Cadastrado com Sucesso')
-          })
-          .catch(function (error) {
-            console.log(error);
-            console.log('Erro ao cadastar')
-          });     
-        
+        createUserWithEmailAndPassword(auth, getEmail, getSenha)
+        .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        // ...
+        })
+        .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+        });
     }
     return (
         <>      
         <View style={{flex:1, flexDirection:"column", justifyContent:'space-around', alignItems:"center"}}>
                 
-                <Input 
-                    label='Nome'
-                    placeholder='Digite seu nome...'
-                    containerStyle = {{width:350}}
-                    onChangeText={text => setNome(text)}
-
-                />
-                <Input 
-                    label='CPF'
-                    placeholder='Digite seu CPF...'
-                    containerStyle = {{width:350}}
-                    onChangeText={text => setCpf(text)}
-
-                 />
                  <Input
                     label='Email' 
                     placeholder='Digite seu email...'
