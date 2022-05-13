@@ -6,9 +6,22 @@ import { Avatar, ListItem,Header } from 'react-native-elements';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { ScrollView } from 'react-native';
-
+import { getAuth, signOut } from "firebase/auth";
 
 export default function ListContacts({route,navigation}) {
+
+    const auth = getAuth();
+    function deslogar(){
+        signOut(auth).then(() => {
+            // Sign-out successful.
+                navigation.navigate('Login')
+            }).catch((error) => {
+            // An error happened.
+                console.log(error)
+            });
+    }
+    
+
 
     const [getContatos, setContatos] = useState([]);
     function consultarDados(){
@@ -21,7 +34,6 @@ export default function ListContacts({route,navigation}) {
             console.log(error);
         
         });
-        
     }
 
 
@@ -35,7 +47,7 @@ export default function ListContacts({route,navigation}) {
         <>
         <Header
         containerStyle={{backgroundColor:'#5c5c5c'}}
-        leftComponent={{ icon: 'power-off', type: 'font-awesome', color: '#fff',   iconStyle: { color: '#fff',fontSize: 23 }, onPress:()=>navigation.navigate('Login') }}
+        leftComponent={{ icon: 'power-off', type: 'font-awesome', color: '#fff',   iconStyle: { color: '#fff',fontSize: 23 }, onPress:()=> deslogar() }}
         leftContainerStyle={{display:"flex",justifyContent:"center"}}
         rightComponent={{ icon: 'plus', type: 'font-awesome', color: '#fff',   iconStyle: { color: '#fff',fontSize: 23 }, onPress:()=>navigation.navigate('CadastroContato') }}
         rightContainerStyle={{display:"flex",justifyContent:"center"}}

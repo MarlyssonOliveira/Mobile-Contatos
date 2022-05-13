@@ -57,7 +57,7 @@ export default function Cadastro({route,navigation}) {
                     placeholder='Digite sua senha...'
                     containerStyle = {{width:350}}
                     onChangeText={text => setSenha(text)}
-                    type="password"
+                    secureTextEntry={true}
                  />
 
                 <Button 

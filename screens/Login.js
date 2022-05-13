@@ -56,7 +56,7 @@ export default function Login({route,navigation}) {
                 />
                 <Input 
                     label="Senha"
-                    type="password"
+                    secureTextEntry={true}
                     containerStyle = {{width:350}}
                     onChangeText={text => setSenha(text)}
                  />
